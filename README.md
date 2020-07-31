@@ -1,6 +1,6 @@
 # Mastermind
 A digital version of the popular board game 'Mastermind'. 
-Currently this supports both 2 player and single player (vs the computer) game modes!
+Currently this supports both 2 player and single player (vs the computer) game modes - featuring 6 difficulty levels!
 
 This is the first of my shared 'Mini Projects' - small challenges I set myself to keep my mind busy.
 
