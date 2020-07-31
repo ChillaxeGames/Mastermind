@@ -76,6 +76,24 @@ def SinglePlayer():
       print("Enter a " + Fore.RED + "number" + Fore.RESET + " value")
     print()
   print()
+  print(Fore.CYAN + "Classic Difficulties:")
+  print("1 > " + Fore.GREEN + "Easy        " + Fore.RESET + " (12 Turns)")
+  print("2 > " + Fore.YELLOW + "Intermediate" + Fore.RESET + " (10 Turns)")
+  print("3 > " + Fore.MAGENTA + "Hard        " + Fore.RESET + " (08 Turns)")
+  print("4 > " + Fore.RED + "Very Hard   " + Fore.RESET + " (06 Turns)")
+  print()
+  print(Fore.CYAN + "Alternate Difficulties:")
+  print("5 > " + Fore.BLUE + "First Time  " + Fore.RESET + " (20 Turns)")
+  print("6 > " + Fore.BLACK + "Insane      " + Fore.RESET + " (04 Turns)")
+  print()
+  valid = 0
+  while(valid == 0):
+    difficulty = input("Enter difficulty level > ")
+    if(difficulty == "1" or difficulty == "2" or difficulty == "3" or difficulty == "4" or difficulty == "5" or difficulty == "6"):
+      valid = 1
+    else:
+      print("Enter a " + Fore.RED + " valid " + Fore.RESET + "number")
+  print()
   os.system('cls')
   print()
   roundCounter = 1
@@ -85,12 +103,28 @@ def SinglePlayer():
   # Main Peg Colours 0 = none, 1 = red, 2 = green, 3 = blue, 4 = cyan, 5 = magenta, 6 = yellow
   # Hint Peg Colours 0 = none, 1 = black, 2 = white
   for i in (rounds * "."):
-    B = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
-    H = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
+    if(difficulty == "1"):
+      B = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
+      H = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
+    elif(difficulty == "2"):
+      B = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
+      H = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
+    elif(difficulty == "3"):
+      B = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
+      H = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
+    elif(difficulty == "4"):
+      B = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
+      H = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
+    elif(difficulty == "5"):
+      B = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
+      H = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
+    else:
+      B = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
+      H = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
     Answer = [random.randint(1,6), random.randint(1,6), random.randint(1,6), random.randint(1,6)]
     Colours = [Fore.RED + "⬤ ", Fore.GREEN + "⬤ ", Fore.BLUE + "⬤ ", Fore.CYAN + "⬤ ", Fore.MAGENTA + "⬤ ", Fore.YELLOW + "⬤ ", ]
     winState = 0
-    turnsleft = 12
+    turnsleft = len(B)
     print()
     print()
     print(Fore.GREEN + "ROUND " + str(roundCounter))
@@ -135,7 +169,7 @@ def SinglePlayer():
         else:
           print()
       print()
-      B[12 - turnsleft] = attempt
+      B[len(B) - turnsleft] = attempt
       pegs = [0, 0, 0, 0]
       attemptClone = [attempt[0], attempt[1], attempt[2], attempt[3]]
       answerClone = [Answer[0], Answer[1], Answer[2], Answer[3]]
@@ -157,7 +191,7 @@ def SinglePlayer():
           attemptClone[count] = 0
           insertionPoint = insertionPoint + 1
         count = count + 1
-      H[12 - turnsleft] = pegs
+      H[len(H) - turnsleft] = pegs
       if(pegs == [1, 1, 1, 1]):
         turnsleft = 0
         winState = 1
@@ -232,7 +266,24 @@ def TwoPlayer():
       valid = 1
     except ValueError:
       print("Enter a " + Fore.RED + "number" + Fore.RESET + " value")
-    print()
+  print()
+  print(Fore.CYAN + "Classic Difficulties:")
+  print("1 > " + Fore.GREEN + "Easy        " + Fore.RESET + " (12 Turns)")
+  print("2 > " + Fore.YELLOW + "Intermediate" + Fore.RESET + " (10 Turns)")
+  print("3 > " + Fore.MAGENTA + "Hard        " + Fore.RESET + " (08 Turns)")
+  print("4 > " + Fore.RED + "Very Hard   " + Fore.RESET + " (06 Turns)")
+  print()
+  print(Fore.CYAN + "Alternate Difficulties:")
+  print("5 > " + Fore.BLUE + "First Time  " + Fore.RESET + " (20 Turns)")
+  print("6 > " + Fore.BLACK + "Insane      " + Fore.RESET + " (04 Turns)")
+  print()
+  valid = 0
+  while(valid == 0):
+    difficulty = input("Enter difficulty level > ")
+    if(difficulty == "1" or difficulty == "2" or difficulty == "3" or difficulty == "4" or difficulty == "5" or difficulty == "6"):
+      valid = 1
+    else:
+      print("Enter a " + Fore.RED + " valid " + Fore.RESET + "number")
   print()
   os.system('cls')
   print()
@@ -244,11 +295,27 @@ def TwoPlayer():
   # Main Peg Colours 0 = none, 1 = red, 2 = green, 3 = blue, 4 = cyan, 5 = magenta, 6 = yellow
   # Hint Peg Colours 0 = none, 1 = black, 2 = white
   for i in (rounds * 2 * "."):
-    B = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
-    H = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
+    if(difficulty == "1"):
+      B = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
+      H = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
+    elif(difficulty == "2"):
+      B = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
+      H = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
+    elif(difficulty == "3"):
+      B = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
+      H = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
+    elif(difficulty == "4"):
+      B = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
+      H = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
+    elif(difficulty == "5"):
+      B = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
+      H = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
+    else:
+      B = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
+      H = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
     Colours = [Fore.RED + "⬤ ", Fore.GREEN + "⬤ ", Fore.BLUE + "⬤ ", Fore.CYAN + "⬤ ", Fore.MAGENTA + "⬤ ", Fore.YELLOW + "⬤ ", ]
     winState = 0
-    turnsleft = 12
+    turnsleft = len(B)
     print()
     print()
     print(Fore.GREEN + "ROUND " + str(roundCounter))
@@ -293,7 +360,7 @@ def TwoPlayer():
     turn = 2
     while(turnsleft > 0):
       if(turn == 2):
-        for m in ".........":
+        for m in ".........................":
           print()
         os.system('cls')
         print()
@@ -339,7 +406,7 @@ def TwoPlayer():
           else:
             print()
         print()
-        B[12 - turnsleft] = attempt
+        B[len(B) - turnsleft] = attempt
         turn = 1
       else:
         for m in ".........":
@@ -360,7 +427,7 @@ def TwoPlayer():
         entryComplete = 0
         print("Answer              > " + Colours[Answer[0] - 1] + " " + Colours[Answer[1] - 1] + " " + Colours[Answer[2] - 1] + " " + Colours[Answer[3] - 1])
         print()
-        print(Fore.YELLOW + "Codebreaker's" + Fore.RESET + " guess > " + Colours[B[12 - turnsleft][0] - 1] + " " + Colours[B[12 - turnsleft][1] - 1] + " " + Colours[B[12 - turnsleft][2] - 1] + " " + Colours[B[12 - turnsleft][3] - 1])
+        print(Fore.YELLOW + "Codebreaker's" + Fore.RESET + " guess > " + Colours[B[len(B) - turnsleft][0] - 1] + " " + Colours[B[len(B) - turnsleft][1] - 1] + " " + Colours[B[len(B) - turnsleft][2] - 1] + " " + Colours[B[len(B) - turnsleft][3] - 1])
         print()
         print()
         print("0 > No Peg")
@@ -389,7 +456,7 @@ def TwoPlayer():
             entryComplete = 1
           else:
             print()
-        H[12 - turnsleft] = pegs
+        H[len(H) - turnsleft] = pegs
         if(pegs == [1, 1, 1, 1]):
           turnsleft = 0
           winState = 1
@@ -594,3 +661,4 @@ while(game == 0):
       exit = input("Press enter to quit > Thanks for playing! ")
     else:
       print("Invalid Entry > Try again!")
+      
