@@ -6,6 +6,6 @@ This is the first of my shared 'Mini Projects' - small challenges I set myself t
 
 Play online instead : https://repl.it/@Chillaxe/Mastermind-in-Python-v100#main.py
 
-You can find more of my stuff at https://chillaxegamedev.wordpress.com/
+You can find more of my stuff at https://chillaxegames.itch.io
 
 This is an unofficial version, no copyright infringement is intended. Credit to Mordecai Meirowitz for designing the original game.
